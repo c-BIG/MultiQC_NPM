@@ -7,8 +7,8 @@ See https://multiqc.info/docs/#hooks
 """
 
 from __future__ import print_function
-from pkg_resources import get_distribution
 import logging
+from pkg_resources import get_distribution
 
 from multiqc.utils import config
 
@@ -18,7 +18,10 @@ log = logging.getLogger('multiqc')
 
 def before_config():
     my_search_patterns = {
-        'multiqc_npm/picard_quality_yield_metrics': {'fn': '*.quality_yield_metrics.txt'}
+        'multiqc_npm/picard_quality_yield_metrics': {'fn': '*.quality_yield_metrics.txt'},
+        'multiqc_npm/samtools_stats_bq': {'fn': '*.stats'},
+        'multiqc_npm/bcftools_gtcheck': {'fn': '*.bcftools_gtcheck.txt'},
+        'multiqc_npm/sg10k_cov_062017': {'fn': '*.sg10k_cov_062017.txt'},
     }
     config.update_dict(config.sp, my_search_patterns)
-    log.info("Expanded search patterns with the following: %s", ",".join(my_search_patterns.keys()))
+    log.info("Expanded search patterns with the following: %s", ", ".join(my_search_patterns.keys()))

@@ -1,0 +1,7 @@
+# This file was produced by bcftools (1.10.2+htslib-1.10.2), the command line was:
+# 	 bcftools gtcheck  --GTs-only 1 --genotypes NA12877.variant-sites.vcf.gz NA12878-PCRF450-1_Proband_S1.hard-filtered.gvcf.gz
+# and the working directory was:
+# 	 /data/13000026/pipeline/dev/NPM-sample-qc/tests/test_NA12878-PCRF450-1_run1/work/1c/ae115f74c37c084544e6c1f104576f
+#
+# [1]CN	[2]Discordance with NA12878-PCRF450-1_Proband_S1 (total)	[3]Discordance (avg score per site)	[4]Number of sites compared	[5]Sample	[6]Sample ID
+CN	1.037477e+06	1.037477e+06	2991032	NA12877_S1_Proband_S1	0

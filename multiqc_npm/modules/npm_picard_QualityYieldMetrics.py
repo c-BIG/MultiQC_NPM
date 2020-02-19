@@ -4,7 +4,6 @@
 Parser for picard QualityYieldMetrics
 """
 
-from collections import OrderedDict
 import logging
 import os
 import re

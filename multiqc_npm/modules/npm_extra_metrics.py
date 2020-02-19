@@ -6,17 +6,20 @@ NPMExtraMetrics module
 
 from __future__ import print_function
 import logging
-import sys
 
 from multiqc.utils import config
 from multiqc.modules.base_module import BaseMultiqcModule
 
 from . import npm_picard_QualityYieldMetrics
+from . import npm_samtools_stats_bq
+from . import npm_bcftools_gtcheck
+from . import npm_sg10k_cov_062017
 
 log = logging.getLogger('multiqc')
 
 
 class NPMExtraMetrics(BaseMultiqcModule):
+
     def __init__(self):
 
         # Halt execution if we've disabled the plugin
@@ -38,7 +41,19 @@ class NPMExtraMetrics(BaseMultiqcModule):
 
         n['npm_picard_QualityYieldMetrics'] = npm_picard_QualityYieldMetrics.parse_reports(self)
         if n['npm_picard_QualityYieldMetrics'] > 0:
-            log.info("Found {} npm_picard_QualityYieldMetrics reports".format(n['npm_picard_QualityYieldMetrics']))
+            log.info("Found %d npm_picard_QualityYieldMetrics reports" % n['npm_picard_QualityYieldMetrics'])
+
+        n['npm_samtools_stats_bq'] = npm_samtools_stats_bq.parse_reports(self)
+        if n['npm_samtools_stats_bq'] > 0:
+            log.info("Found %d npm_samtools_stats_bq reports" % n['npm_samtools_stats_bq'])
+
+        n['npm_bcftools_gtcheck'] = npm_bcftools_gtcheck.parse_reports(self)
+        if n['npm_bcftools_gtcheck'] > 0:
+            log.info("Found %d npm_bcftools_gtcheck reports" % n['npm_bcftools_gtcheck'])
+
+        n['npm_sg10k_cov_062017'] = npm_sg10k_cov_062017.parse_reports(self)
+        if n['npm_sg10k_cov_062017'] > 0:
+            log.info("Found %d npm_sg10k_cov_062017 reports" % n['npm_sg10k_cov_062017'])
 
         # Exit if we didn't find anything
         if sum(n.values()) == 0:
