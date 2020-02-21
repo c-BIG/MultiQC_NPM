@@ -22,6 +22,8 @@ def before_config():
         'multiqc_npm/samtools_stats_bq': {'fn': '*.stats', 'shared': 'true'},
         'multiqc_npm/bcftools_gtcheck': {'fn': '*.bcftools_gtcheck.txt', 'shared': 'true'},
         'multiqc_npm/sg10k_cov_062017': {'fn': '*.sg10k_cov_062017.txt'},
+        'multiqc_npm/count_variants': {'fn': '*.variant_counts.json'},
+        'multiqc_npm/calculate_callability': {'fn': '*.callability.json'},
     }
     config.update_dict(config.sp, my_search_patterns)
     log.info("Expanded search patterns with the following: %s", ", ".join(my_search_patterns.keys()))

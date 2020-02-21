@@ -14,6 +14,8 @@ from . import npm_picard_QualityYieldMetrics
 from . import npm_samtools_stats_bq
 from . import npm_bcftools_gtcheck
 from . import npm_sg10k_cov_062017
+from . import npm_count_variants
+from . import npm_calculate_callability
 
 log = logging.getLogger('multiqc')
 
@@ -54,6 +56,14 @@ class NPMExtraMetrics(BaseMultiqcModule):
         n['npm_sg10k_cov_062017'] = npm_sg10k_cov_062017.parse_reports(self)
         if n['npm_sg10k_cov_062017'] > 0:
             log.info("Found %d npm_sg10k_cov_062017 reports" % n['npm_sg10k_cov_062017'])
+
+        n['npm_count_variants'] = npm_count_variants.parse_reports(self)
+        if n['npm_count_variants'] > 0:
+            log.info("Found %d npm_count_variants reports" % n['npm_count_variants'])
+
+        n['npm_calculate_callability'] = npm_calculate_callability.parse_reports(self)
+        if n['npm_calculate_callability'] > 0:
+            log.info("Found %d npm_calculate_callability reports" % n['npm_calculate_callability'])
 
         # Exit if we didn't find anything
         if sum(n.values()) == 0:
