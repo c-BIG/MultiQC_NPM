@@ -21,13 +21,11 @@ def parse_reports(self):
     for f in self.find_log_files('multiqc_npm/mosdepth', filehandles=True):
 
         # Collect relevant records and calculate metrics
-        parsed_data = dict()
-
-        r = csv.DictReader(f, delimiter=",")
-        for l in r:
-            print(l)
-            # file contains only 1 line
-            parsed_data = l
+        vals = list()
+        for l in f["f"]:
+            v = l.strip("\n").split(",")
+            vals.append(v)
+        parsed_data = dict(zip(vals[0], vals[1]))
 
         # Save results
         s_name = f["s_name"]

@@ -17,12 +17,12 @@ def parse_reports(self):
     self.sg10k_cov_062017 = dict()
 
     # Collect metrics
-    for f in self.find_log_files('multiqc_npm/sg10k_cov_062017', filehandles=True):
+    for f in self.find_log_files("multiqc_npm/sg10k_cov_062017", filehandles=True):
 
         # Collect relevant records and calculate metrics
         parsed_data = dict()
 
-        for l in f['f']:
+        for l in f["f"]:
             # file contains only 1 line
             parsed_data["bases_sg10k_062017"] = int(l.strip("\n"))
 
@@ -34,7 +34,7 @@ def parse_reports(self):
     if len(self.sg10k_cov_062017) > 0:
 
         # Write parsed data to a file
-        self.write_data_file(self.sg10k_cov_062017, 'multiqc_npm_sg10k_cov_062017')
+        self.write_data_file(self.sg10k_cov_062017, "multiqc_npm_sg10k_cov_062017")
 
     # Return the number of detected samples to the parent module
     return len(self.sg10k_cov_062017)

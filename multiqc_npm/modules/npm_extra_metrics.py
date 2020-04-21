@@ -15,7 +15,6 @@ from . import npm_samtools_stats_bq
 from . import npm_bcftools_gtcheck
 from . import npm_sg10k_cov_062017
 from . import npm_count_variants
-from . import npm_calculate_callability
 from . import npm_mosdepth
 
 log = logging.getLogger('multiqc')
