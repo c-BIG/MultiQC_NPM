@@ -24,6 +24,7 @@ def before_config():
         'multiqc_npm/sg10k_cov_062017': {'fn': '*.sg10k_cov_062017.txt'},
         'multiqc_npm/count_variants': {'fn': '*.variant_counts.json'},
         'multiqc_npm/calculate_callability': {'fn': '*.callability.json'},
+        'multiqc_npm/mosdepth': {'fn: *.mosdepth.csv'}
     }
     config.update_dict(config.sp, my_search_patterns)
     log.info("Expanded search patterns with the following: %s", ", ".join(my_search_patterns.keys()))

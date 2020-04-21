@@ -16,6 +16,7 @@ from . import npm_bcftools_gtcheck
 from . import npm_sg10k_cov_062017
 from . import npm_count_variants
 from . import npm_calculate_callability
+from . import npm_mosdepth
 
 log = logging.getLogger('multiqc')
 
@@ -61,9 +62,9 @@ class NPMExtraMetrics(BaseMultiqcModule):
         if n['npm_count_variants'] > 0:
             log.info("Found %d npm_count_variants reports" % n['npm_count_variants'])
 
-        n['npm_calculate_callability'] = npm_calculate_callability.parse_reports(self)
-        if n['npm_calculate_callability'] > 0:
-            log.info("Found %d npm_calculate_callability reports" % n['npm_calculate_callability'])
+        n['npm_mosdepth'] = npm_mosdepth.parse_reports(self)
+        if n['npm_mosdepth'] > 0:
+            log.info("Found %d npm_mosdepth reports" % n['npm_mosdepth'])
 
         # Exit if we didn't find anything
         if sum(n.values()) == 0:

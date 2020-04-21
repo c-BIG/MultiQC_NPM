@@ -10,7 +10,7 @@ projectdir=$(realpath "$(pwd)/..")
 testdir="$1"
 if [ -z "$testdir" ]; then
     echo "ERROR: Missing testdir argument, e.g.:" 1>&2
-    echo "  testdir='/data/13000026/pipeline/dev/NPM-sample-qc/tests/<my_run>'" 1>&2
+    echo "  testdir='/data/13000026/pipeline/dev/NPM-sample-qc-aux/tests/<my_run>'" 1>&2
     echo "  ./run.sh \$testdir"
     exit 1
 fi
